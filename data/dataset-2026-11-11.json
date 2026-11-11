@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "fx": 7.1,
+  "peakShare": 0.6,
+  "workload": {
+    "miss": 553,
+    "hit": 92928,
+    "out": 1320,
+    "label": "agent 单轮（实测样例）"
+  },
+  "presets": [
+    {
+      "label": "agent 单轮（实测样例）",
+      "miss": 553,
+      "hit": 92928,
+      "out": 1320
+    },
+    {
+      "label": "agent 长会话 · 缓存更重",
+      "miss": 800,
+      "hit": 200000,
+      "out": 3000
+    },
+    {
+      "label": "长文生成 · 缓存少",
+      "miss": 12000,
+      "hit": 2000,
+      "out": 8000
+    },
+    {
+      "label": "短问答",
+      "miss": 900,
+      "hit": 100,
+      "out": 300
+    },
+    {
+      "label": "批量摘要 · 纯输入",
+      "miss": 20000,
+      "hit": 0,
+      "out": 500
+    }
+  ],
+  "refs": [
+    {
+      "model": "deepseek-v4.1-flash",
+      "aliases": [
+        "deepseek-v4.1-flash-1017"
+      ],
+      "currency": "CNY",
+      "off": {
+        "miss": 1,
+        "hit": 0.02,
+        "out": 4
+      },
+      "peak": {
+        "miss": 2,
+        "hit": 0.04,
+        "out": 8
+      },
+      "source": "官网价目表"
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "aliases": [],
+      "currency": "CNY",
+      "off": {
+        "miss": 4.4,
+        "hit": 0.147,
+        "out": 13.2
+      },
+      "peak": {
+        "miss": 8.8,
+        "hit": 0.294,
+        "out": 26.4
+      },
+      "source": "推导：官方美元列表 0.66/0.022/1.98 × 6.67"
+    }
+  ],
+  "vendors": [
+    {
+      "id": "v-00",
+      "name": "0-0.pro",
+      "currency": "USD",
+      "cnyPerUnit": 7.1,
+      "multiplier": 1,
+      "note": "$1 到账 $1（无赠送）；平铺价：无缓存命中价、不分峰谷"
+    },
+    {
+      "id": "v-allrouter",
+      "name": "allrouter.cc",
+      "currency": "USD",
+      "cnyPerUnit": 7.1,
+      "multiplier": 0.4,
+      "note": "$1 = 10 积分；分组倍率 0.4x；工作日 9–12 / 14–18 为高峰"
+    },
+    {
+      "id": "v-zeekai",
+      "name": "api.zeekai.cc",
+      "currency": "USD",
+      "cnyPerUnit": 1,
+      "multiplier": 0.15,
+      "note": "¥1 到账 $1（≈7 倍杠杆）；使用倍率 0.15x；倍率基准待核实"
+    },
+    {
+      "id": "v-official",
+      "name": "DeepSeek 官方直付",
+      "currency": "CNY",
+      "cnyPerUnit": 1,
+      "multiplier": 1,
+      "note": "人民币直付，无充值杠杆"
+    }
+  ],
+  "quotes": [
+    {
+      "id": "q-00-41",
+      "vendorId": "v-00",
+      "model": "deepseek-v4.1-flash-1017",
+      "off": {
+        "miss": 0.018,
+        "hit": null,
+        "out": 0.072
+      },
+      "note": "94% off（列表 0.3/1.2 的 6%）；缓存按输入价计"
+    },
+    {
+      "id": "q-00-v4f",
+      "vendorId": "v-00",
+      "model": "deepseek-v4-flash",
+      "off": {
+        "miss": 0.44,
+        "hit": null,
+        "out": 1.32
+      },
+      "note": "同站另一模型，无折扣标签"
+    },
+    {
+      "id": "q-00-v4p",
+      "vendorId": "v-00",
+      "model": "deepseek-v4-pro",
+      "off": {
+        "miss": 1.32,
+        "hit": null,
+        "out": 3.96
+      },
+      "note": "= 官方列表全价，无折扣"
+    },
+    {
+      "id": "q-ar-41",
+      "vendorId": "v-allrouter",
+      "model": "deepseek-v4.1-flash",
+      "off": {
+        "miss": 0.15,
+        "hit": 0.003,
+        "out": 0.6
+      },
+      "peak": {
+        "miss": 0.3,
+        "hit": 0.006,
+        "out": 1.2
+      },
+      "note": "表达式：高峰 p*0.3+cr*0.006+c*1.2；空闲 p*0.15+cr*0.003+c*0.6"
+    },
+    {
+      "id": "q-ar-v4f",
+      "vendorId": "v-allrouter",
+      "model": "deepseek-v4-flash",
+      "off": {
+        "miss": 0.15,
+        "hit": 0.003,
+        "out": 0.6
+      },
+      "peak": {
+        "miss": 0.3,
+        "hit": 0.006,
+        "out": 1.2
+      },
+      "note": "与 4.1-flash 同基准"
+    },
+    {
+      "id": "q-ar-v4p",
+      "vendorId": "v-allrouter",
+      "model": "deepseek-v4-pro",
+      "off": {
+        "miss": 0.66,
+        "hit": 0.022,
+        "out": 1.98
+      },
+      "peak": {
+        "miss": 1.32,
+        "hit": 0.044,
+        "out": 3.96
+      },
+      "note": "表达式：高峰 ×1.32 / ×0.044 / ×3.96"
+    },
+    {
+      "id": "q-zk-41",
+      "vendorId": "v-zeekai",
+      "model": "deepseek-v4.1-flash",
+      "off": {
+        "miss": 0.15,
+        "hit": 0.003,
+        "out": 0.6
+      },
+      "note": "按官方美元列表录入，倍率 0.15x 由平台套用；未见峰谷分档"
+    },
+    {
+      "id": "q-of-41",
+      "vendorId": "v-official",
+      "model": "deepseek-v4.1-flash",
+      "off": {
+        "miss": 1,
+        "hit": 0.02,
+        "out": 4
+      },
+      "peak": {
+        "miss": 2,
+        "hit": 0.04,
+        "out": 8
+      },
+      "note": "人民币价目表"
+    }
+  ]
+}
