@@ -3,7 +3,10 @@
 一个离线单文件 HTML：把各家中转站 / 官方 API 的 token 价目表，统一换算成
 **「实付人民币 / 每次请求」**，然后按「按模型」或「按整体折扣」排序。
 
-双击 `index.html` 就能用，不需要装任何东西、不联网、数据只写本机 localStorage。
+**在线版：<https://xiaojinren1.github.io/api-price-radar/>**（GitHub Pages，打开即用）
+
+本地版：双击 `index.html` 就能用，不需要装任何东西、不联网、数据只写本机 localStorage。
+两版是同一个文件，数据都存在各自浏览器的 localStorage 里，互不同步。
 
 ## 为什么不能只比「每百万 token 报价」
 
